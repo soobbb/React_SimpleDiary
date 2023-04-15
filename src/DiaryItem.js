@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const DiaryItem = ({
   onEdit,
@@ -9,6 +9,11 @@ const DiaryItem = ({
   emotion,
   id,
 }) => {
+  useEffect(()=>{
+    console.log(`${id}번 째 아이템 렌더!`)
+  })
+
+
   // isEdit이 true라면 수정중이라는 뜻 false면 다시 원래 상태로
   const [isEdit, setIsEdit] = useState(false);
   const toggleIsEdit = () => setIsEdit(!isEdit);
@@ -77,4 +82,4 @@ const DiaryItem = ({
   );
 };
 
-export default DiaryItem;
+export default React.memo(DiaryItem);
